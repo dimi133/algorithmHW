@@ -1,1 +1,38 @@
+1.Вводится три числа, необходимо проверить является ли он треугольником (сумма любых двух сторон треугольника больше третьей)
+int first = 3;
+int second = 4;
+int third = 5;
 
+if(first + second > third && first + third > second && second + third > first){
+system.out.println("triangle");
+}else {
+System.out.println("not a triangle")
+}
+
+2.Даны переменные:
+деньги которые у нас есть - 1000 рублей
+стоимость пиццы - 230 рублей
+стоимость жвачки - 26 рублей
+стоимость конфеты - 2,5 рубля Задача: представим себе что мы зашли в магазин, и наша задача: купить максимум возможных пиц, затем на сдачу купить максимум жвачек, затем на оставшуюся сдачу купить конфет. В результате нам нужно сделать математический просчет и вывести на консоль примерно вот такую информацию: На эти деньги мы можем купить:
+4 пиццы
+3 жвачки
+0 конфет Сдача с магазина: 2 рубля.
+
+int money = 1000;
+int pizzaPrice = 230;
+int gymPrice = 26;
+double candyPrice = 2.5;
+int pizzaCount =0;
+
+while (money > pizzaPrice) {
+money = money - pizzaPrice;
+pizzaCount = pizzaCount +1;
+}
+
+pizzaCount = money/ pizzaPrice;
+money = money % pizzaPrice;
+
+int gymCount = money / gymPrice;
+money = money % gymPrice;
+int candyCount = (int) (money / candyPrice); // How many candies could we buy
+money = money - (int) (candyPrice * candyCount);
