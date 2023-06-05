@@ -6,6 +6,11 @@ LEVEL 1
 2. Что такое стек?
   Stack - линейная структура данных, которая следует определённому порядку выполнения операции.
       в Stack главное правило LIFO -последний зашел, первый вышел.
+      int[] array = new int[10]
+      push 7 -> array[curent ++]
+      peek
+      isEmpty
+      pop
   
 3. Какие типы рекурсии существуют? Каких нужно избегать?
   Прямая рекурсия - если функция вызывает ту же функцию
@@ -57,6 +62,7 @@ LEVEL 1
 
         int result = algorithm(a, b);
         System.out.println(result); 
+        
     
 
 
@@ -77,7 +83,21 @@ LEVEL 2
       swap(a[i], a[min])
    ------------------------------------   
       
-      ...
+public static int[] sort(int[] arra){
+for (int i < array.length -2; i++){           // O(n-2) -> O(n)
+int min = array[i];
+int index = i;
+for (int j=i +1; j< array.length -1; j++){    // O(n-1) -> O(n)
+if (array[j] < min){
+min = array[j];
+index = j;
+}}
+//swap 
+int tmp = array[i];                         // O(1)
+array[i] = min;
+array[index = tmp;]}
+return array;                               // O(n)* O(n) = O(nˆ2)
+}
    
     
 2. Реализуйте алгоритм сортировки вставками (есть псевдокод на 4 слайде) Алгоритм, 
