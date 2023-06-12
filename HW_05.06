@@ -25,7 +25,7 @@ LEVEL 1
   - Если нужное значение меньше - продолжаем поиск в левой части и повторяем шаги 2 и 3
 
 4. Какова сложность бинарного поиска?
-O(n log n)
+O(n log n)     Правильно => O(log(n))
 
 5. Попробуйте написать алгоритм бинарного поиска
       function binarySearch(arr, num) {
@@ -44,6 +44,29 @@ O(n log n)
         }
       }
       }
+      
+  Решение на уроке 
+  
+  function pow (x, y) {
+  if(n==1) {
+  return x
+  }
+  return n *pow(x, n-1)
+  }
+  
+  --------------------------
+  function powEffective(x,n) {
+    if (n === 1) {
+        return x;// x * 1
+    }
+    if (n % 2 === 0) {
+        let tmp = powEffective(x, n / 2);// divide and conc
+        return tmp * tmp;//merge
+    } else {// n == 5
+        let tmp = powEffective(x, (n - 1) / 2);
+        return x * tmp * tmp;
+    }
+}
 
 6. Даны два целых числа x и n, напишите функцию для вычисления x^n
 Задачу можно решать рекурсивно x^n = x*x*x*x{n раз} - сложность алгоритма O(n)
@@ -79,6 +102,28 @@ O(n log n)
 Применить более хитрый метод - объявить 3 переменные i1 (для прохода по первому массиву), i2 (для прохода по второму массиву) 
 и res - счетчик для подсчета текущего элемента, сравнивать по 1 элементу и если элемент в первом массиве меньше второго, то увеличивать i1, 
 иначе увеличивать i2
+
+const k = 7;
+const arr1 = {100 112 256 349 770 }
+const arr2 = {72 86 113 119 265 445 892}
+function findK(k, array1, array2) {
+    var pointer1 = 0;
+    var pointer2 = 0;
+    var counter = 0;
+    var res = [];
+    while(counter <= k) {
+        if (array1[pointer1] <= array2[pointer2]) {
+            res[counter] = array1[pointer1];
+            pointer1++;
+            counter++;
+        } else {
+            res[counter] = array2[pointer2];
+            pointer2++;
+            counter++;
+        }
+    }
+    return res[k];
+}
 
 
 LEVEL 2
